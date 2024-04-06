@@ -1,0 +1,139 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Life Saver - Registration Page</title>
+    <link href="{% static 'Bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+    <link rel="icon" href="{% static 'images/blood-icon.png'%}">
+    <link rel="stylesheet" href="{% static 'css/register.css' %}">
+</head>
+
+<body>
+    <div class="preloader"></div>
+    <!-- navigation bar -->
+    <nav class="navbar navbar-expand-lg fixed-top py-2">
+        <div class="container">
+            <div class="nav-right">
+                <a class="navbar-brand heading text-light" href="#">Life Saver</a>
+            </div>
+            <div id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link body text-light" href="{%url 'Home'%}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor"
+                                class="bi bi-skip-backward-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M.5 3.5A.5.5 0 0 0 0 4v8a.5.5 0 0 0 1 0V8.753l6.267 3.636c.54.313 1.233-.066 1.233-.697v-2.94l6.267 3.636c.54.314 1.233-.065 1.233-.696V4.308c0-.63-.693-1.01-1.233-.696L8.5 7.248v-2.94c0-.63-.692-1.01-1.233-.696L1 7.248V4a.5.5 0 0 0-.5-.5z" />
+                            </svg></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Login container -->
+    <section class="container login">
+        <div class="row">
+            <div class="col col-12">
+                <h2 class="title text-center text-light">Donor Registration</h2>
+                <img src="{% static 'images/login-img.png' %}" alt="Image for login page" class="img-fluid">
+                <form action="" class="d-flex flex-column" method="post">
+                    {% csrf_token %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{message.tags}}">
+                                {{message}}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                    <fieldset class="nameGroup">
+                        <label for="name" class="details">Full Name <span>*</span></label><br>
+                        <input type="text" name="name" id="name" placeholder="Enter your Full Name" class="input" required>
+                    </fieldset>
+                    <fieldset class="emailGroup">
+                        <label for="email" class="details">Email <span>*</span></label><br>
+                        <input type="email" name="email" id="email" placeholder="Enter your Email Id"
+                            class="input" required>
+                    </fieldset>
+                    <fieldset class="genderGroup">
+                        <label for="gender" class="details">Gender <span>*</span></label><br>
+                        <span id="gender">
+                            <input type="radio" name="gender" id="male" value="male" checked>
+                            <label for="male" class="details">Male</label>
+                            <input type="radio" name="gender" id="female" value="female">
+                            <label for="female" class="details">Female</label>
+                            <input type="radio" name="gender" id="others" value="others">
+                            <label for="others" class="details">Others</label>
+                        </span>
+                    </fieldset>
+                    <fieldset class="bloodGroupm text-left">
+                        <label for="bldGroup" class="details">Blood Group <span>*</span></label><br>
+                        <select name="bldgroup" id="bldGroup" class="input" >
+                            <option value="">Select Blood Group</option>
+                            <option value="A+">A+</option>
+                            <option value="B+">B+</option>
+                            <option value="O+">O+</option>
+                            <option value="AB+">AB+</option>
+                            <option value="A-">A-</option>
+                            <option value="B-">B-</option>
+                            <option value="O-">O-</option>
+                            <option value="AB-">AB-</option>
+                        </select>
+                    </fieldset>
+                    <fieldset>
+                        <label for="dob" class="details">Date of Birth <span>*</span></label><br>
+                        <input type="date" name="dob" id="dob" class="input" required>
+                    </fieldset>
+                    <fieldset class="stateGroup">
+                        <label for="state" class="details">State <span>*</span></label><br>
+                        <select name="state" id="state" class="input" onchange="loadDistrict()">
+                            <option value="">Select State</option>
+                        </select>
+                    </fieldset>
+                    <fieldset class="disGroup">
+                        <label for="inputDistrict" class="details">City <span>*</span></label><br>
+                        <select name="city" id="inputDistrict" class="input">
+                            <option value="">Select City</option>
+                        </select>
+                    </fieldset>
+                    <fieldset class="addressGrp">
+                        <label for="address" class="details">Address <span>*</span></label><br>
+                        <textarea name="address" id="address" cols="35" rows="4" required></textarea>
+                    </fieldset>
+                    <fieldset class="phGroup">
+                        <label for="phNo" class="details">Contact Number <span>*</span></label><br>
+                        <input type="text" id="phNo" name="phNo" placeholder="Enter your Contact Number" required
+                            class="input">
+                    </fieldset>
+                    {% comment %} <fieldset>
+                        <label for="">Choose Your photo <span>*</span></label>
+                        <input type="file" name="photo" id="photo">
+                    </fieldset> {% endcomment %}
+                    <fieldset class="termsGroup">
+                        <input type="checkbox" name="terms" id="terms" required>
+                        <label for="terms" class="details my-3">I Accept to be a Volutary Donor</label>
+                    </fieldset>
+                    <button class="btn" type="submit">
+                        <span class="btn-text-one">Register</span>
+                        <!-- <span class="btn-text-two">Registered</span> -->
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="{% static 'Bootstrap/js/jquery.js' %}"></script>
+    <script src="{% static 'Bootstrap/js/bootstrap.min.js' %}"></script>
+    <script>
+        // initialization for loader
+        let loader = document.querySelector(".preloader");
+
+        window.addEventListener("load", () => {
+            loader.style.display = "none";
+        })
+    </script>
+    <script src="{% static 'js/register.js' %}"></script>
+</body>
+
+</html>

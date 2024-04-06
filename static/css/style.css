@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Poppins", "sans-serif";
+    text-decoration: none !important;
+}
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+    background-color: #FFF0F4 !important;
+}
+
+.preloader{
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 100;
+    background: #fff url(../images/c7e1b7b5753737039e1bdbda578132b8.gif) no-repeat center center;
+    background-size: 50%;
+}
+
+.heading{
+    font-size: clamp(1.85rem, 2vw, 2.5rem);
+    font-weight: bold;
+}
+
+.title{ 
+    font-size: clamp(1.85rem, 2vw, 2.25rem);
+}
+
+.sub-title{
+    font-size: 1.5rem;
+}
+
+.body{
+    font-size: 1.25rem;
+    color: #33000E;
+}
+
+.details{
+    font-size: 1.125rem;
+    color: #33000E;
+}
+
+#home{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #FFE5E8;
+}
+
+#home .heading{
+    font-weight: 800;
+    line-height: 45px;
+    color: #33000E;
+    text-shadow: 0px 0px 5px rgba(255, 64, 109,0.2);
+}
+
+#home .row{
+    margin-top: 95px;
+}
+
+.navbar{
+    background: linear-gradient(45deg, rgba(255, 64, 109,1), rgba(255, 35, 60,1));
+    backdrop-filter: blur(10px);
+    color: #F8F0F9 !important;
+}
+
+.navbar-toggler{
+    outline: none !important;
+}
+
+#home .btn{
+    background: linear-gradient(to left, #FF406D, #FF233C) !important;
+    color: #F8F0F9;
+    font-weight: 500;
+    width: max-content;
+    margin-top: 15px;
+    margin-bottom: 55px;
+}
+
+#service{
+    padding: 6.5em 30px;
+}
+
+#service button::before {
+    margin-left: auto;
+  }
+  
+#service button::after, button::before {
+    content: '';
+    width: 0%;
+    height: 2px;
+    margin: 5px 0px;
+    background: #FF233C;
+    display: block;
+    transition: 0.5s;
+}
+  
+#service button:hover::after, button:hover::before {
+    width: 100%;
+    color: #FF406D;
+}
+
+.wave{
+    margin-top: -55px;
+    width: 100%;
+    margin-bottom: -1px;
+    max-height: 180px;
+}
+
+#contact{
+    min-height: 100vh;
+    padding: 6.5em 30px;
+}
+
+#contact .row{
+    border-radius: 5px;
+    box-shadow: 0px 0px 20px rgba(24, 7, 44, 0.2);
+    padding: 10px;
+    background-color: white;
+}
+
+#contact h2, #login h2{
+    margin-top: 30px;
+    font-weight: bold;
+    line-height: 1.5em;
+}
+
+#contact h2 span{
+    color: #FF233C;
+    font-weight: bold;
+    letter-spacing: 0.125em;
+}
+
+.con-right{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.con-left{
+    display: flex;
+    flex-direction: column;
+}
+
+#contact input, textarea{
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid #33000E;
+    color: #33000E;
+    width: 100%;
+    max-width: 375px;
+}
+
+#contact input:focus, textarea:focus{
+    outline: none;
+    box-shadow: 0px 0px 10px rgba(51, 0, 14,0.3);
+    border: 0px;
+}
+
+#contact label{
+    margin-top: 5px;
+}
+
+#contact button {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    background: #FF233C;
+    color: white;
+    padding: 10px;
+    padding-left: 0.9em;
+    display: flex;
+    align-items: center;
+    border: none;
+    border-radius: 5px;
+    overflow: hidden;
+    transition: all 0.2s;
+  }
+  
+#contact  button span {
+    display: block;
+    margin-left: 0.3em;
+    transition: all 0.3s ease-in-out;
+  }
+  
+#contact  button svg {
+    display: block;
+    transform-origin: center center;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+#contact  button:hover .svg-wrapper {
+    animation: fly-1 0.6s ease-in-out infinite alternate;
+  }
+  
+#contact  button:hover svg {
+    transform: translateX(1.2em) rotate(45deg) scale(1.1);
+  }
+  
+ #contact button:hover span {
+    transform: translateX(5em);
+  }
+  
+#contact  button:active {
+    transform: scale(0.95);
+  }
+  
+@keyframes fly-1 {
+    from {
+      transform: translateY(0.1em);
+    }
+  
+    to {
+      transform: translateY(-0.1em);
+    }
+}

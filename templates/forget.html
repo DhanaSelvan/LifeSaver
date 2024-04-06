@@ -1,0 +1,86 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forget Password - Life Saver</title>
+    <link rel="icon" href="{% static 'images/blood-icon.png' %}">
+    <link rel="stylesheet" href="{% static 'Bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+</head>
+<body>
+    <div class="preloader"></div>
+    <!-- Navigation Bar Start -->
+    <nav class="navbar navbar-expand-lg fixed-top py-2">
+        <div class="container">
+            <div class="nav-right">
+                <a class="navbar-brand heading text-light" href="#">Life Saver</a>
+            </div>
+            <div id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link body text-light" href="{%url 'Home'%}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor"
+                                class="bi bi-skip-backward-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M.5 3.5A.5.5 0 0 0 0 4v8a.5.5 0 0 0 1 0V8.753l6.267 3.636c.54.313 1.233-.066 1.233-.697v-2.94l6.267 3.636c.54.314 1.233-.065 1.233-.696V4.308c0-.63-.693-1.01-1.233-.696L8.5 7.248v-2.94c0-.63-.692-1.01-1.233-.696L1 7.248V4a.5.5 0 0 0-.5-.5z" />
+                            </svg></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Navigation End -->
+    <div class="container requestContainer">
+        <div class="row">
+            <div class="col col-12 d-flex d-flex flex-column">
+                <h2 class="title text-center">Forget Password?</h2>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    {% if messages %}
+                        {% for message in messages %}
+                        <div class="alert alert-{{message.tags}} my-2">
+                            {{message}}
+                        </div>
+                        {% endfor %} 
+                    {% endif %}
+                    <fieldset class="UsernameGroup">
+                        <label for="name" class="login_details ">Username</label><br>
+                        <input type="text" name="name" id="name" placeholder="Enter your UserName" class="input"
+                            required>
+                    </fieldset>
+                    <fieldset class="emailGroup">
+                        <label for="email" class="details">Email Id</label><br>
+                        <input type="email" name="email" id="email" placeholder="Enter your Email Id" class="input"
+                            required>
+                    </fieldset>
+                    <fieldset class="passwordGroup">
+                        <label for="password" class="password">Password</label><br>
+                        <input type="password" name="password" id="password" placeholder="Enter your Password"
+                            class="input" required>
+                    </fieldset>
+                    <fieldset class="confirmpasswordGroup">
+                        <label for="confirmpassword" class="confirmpassword">Confirm Password</label><br>
+                        <input type="password" name="Conpassword" id="Conpassword" placeholder="Re-Type your password"
+                            class="input" required>
+                    </fieldset>
+                    <button class="btn btn-success">
+                        <span class="btn-text-one">Change Password</span>
+                    </button>
+                </form>
+        </div>
+    </div>
+
+    <script src="{% static 'Bootstrap/js/jquery.js' %}"></script>
+    <script src="{% static 'Bootstrap/js/bootstrap.min.js' %}"></script>
+    <script>
+        // initialization for loader
+        let loader = document.querySelector(".preloader");
+
+        window.addEventListener("load", () => {
+            loader.style.display = "none";
+        })
+    </script>
+</body>
+</html>

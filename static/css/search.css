@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Poppins", "sans-serif";
+    text-decoration: none !important;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: url("../images/blood.jpg") center fixed no-repeat;
+    background-size: cover;
+    background-color: rgba(51, 0, 14, 0.8);
+    background-blend-mode: multiply;
+}
+
+.heading{
+    font-size: clamp(1.85rem, 2vw, 2.5rem);
+    font-weight: bold;
+}
+
+.title {
+    font-size: clamp(1.85rem, 2vw, 2.25rem);
+    color: #FF406D;
+    font-weight: 700;
+}
+
+.detail {
+    font-size: 1.125rem;
+    color: #FF233C;
+}
+.body{
+    font-size: 1.25rem;
+    color: #33000E;
+}
+
+.navbar {
+    background: linear-gradient(45deg, rgba(255, 64, 109, 1), rgba(255, 35, 60, 1));
+    backdrop-filter: blur(10px);
+    color: #F8F0F9 !important;
+}
+
+.searchcontainer{
+    width: 95%;
+    max-width: 600px;
+    min-height: 100vh;
+    padding: 0 30px;
+    margin-bottom: 30px;
+    margin-top: 100px;
+    background-color: #F8F0F9;
+    border-radius: 8px;
+}
+
+.search-option-container select{
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin: 0 10px 15px 0px;
+    border: 1px solid salmon;
+}
