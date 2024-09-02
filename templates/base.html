@@ -1,0 +1,56 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Bootstrap CSS -->
+    <link href="{% static 'Bootstrap/css/bootstrap.min.css' %}" rel="stylesheet" >
+    <title>Life Saver - Blood Donor Application</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link rel="icon" href="{% static 'images/blood-icon.png'%}">
+  </head>
+  <body>
+    
+    <main>
+      <div class="preloader"></div>
+      {% block header%}
+      {% endblock header%}
+
+      {% block homeSection %}
+      {% endblock homeSection %}
+
+      {% block serviceSection %}
+      {% endblock serviceSection %}
+
+      {% block contactSection %}
+      {% endblock contactSection %}
+    </main>
+    
+    <script src="{% static 'Bootstrap/js/jquery.js' %}"></script>
+    <script src="{% static 'Bootstrap/js/jquery.min.js' %}"></script>
+    <script src="{% static 'Bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      // initialization for loader
+      let loader = document.querySelector(".preloader");
+
+      window.addEventListener("load", () => {
+          loader.style.display = "none";
+      })
+
+       // initialization of aos
+        AOS.init({
+          duration: 800,
+        });
+
+      {% comment %} var message_del = document.getElementByClass("alert");
+      setTimout(function(){
+        message_del.style.display = "none"
+      }, 5000) {% endcomment %}
+
+    </script>
+  </body>
+</html>

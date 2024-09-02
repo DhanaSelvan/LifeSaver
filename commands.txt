@@ -1,0 +1,14 @@
+// To install the virtual environment
+pip install pipenv
+
+// To activate a virtual environment
+pipenv shell
+
+// To install Django
+pip install django
+
+// To create new project
+django-admin startproject project_name
+
+// To run the project
+python manage.py runserver 

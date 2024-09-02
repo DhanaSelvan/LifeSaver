@@ -1,0 +1,121 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Request - Life Saver</title>
+    <link rel="icon" href="{% static 'images/blood-icon.png' %}">
+    <link rel="stylesheet" href="{% static 'Bootstrap/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+</head>
+<body>
+    <div class="preloader"></div>
+    <!-- Navigation Bar Start -->
+    <nav class="navbar navbar-expand-lg fixed-top py-2">
+        <div class="container">
+            <div class="nav-right">
+                <a class="navbar-brand heading text-light" href="#">Life Saver</a>
+            </div>
+            <div id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link body text-light" href="{%url 'Home'%}">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor"
+                                class="bi bi-skip-backward-fill" viewBox="0 0 16 16">
+                                <path
+                                    d="M.5 3.5A.5.5 0 0 0 0 4v8a.5.5 0 0 0 1 0V8.753l6.267 3.636c.54.313 1.233-.066 1.233-.697v-2.94l6.267 3.636c.54.314 1.233-.065 1.233-.696V4.308c0-.63-.693-1.01-1.233-.696L8.5 7.248v-2.94c0-.63-.692-1.01-1.233-.696L1 7.248V4a.5.5 0 0 0-.5-.5z" />
+                            </svg></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Navigation End -->
+    <div class="container requestContainer">
+        <div class="row">
+            <div class="col col-12 d-flex flex-column">
+                <h2 class="title text-center">Request For Blood</h2>
+                <form action="" method="post" autocomplete="off">
+                    {% csrf_token %}
+                    {% if messages %}
+                        {% for message in messages %}
+                            <div class="alert alert-{{message.tags}}">
+                                {{message}}
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                    <hr>
+                    <h4 class="details">Total Donors = {{total}}</h4>
+                    <hr>
+                    <fieldset class="PatientNameGroup">
+                        <label for="name" class="details">Patient Name</label><br>
+                        <input type="text" name="name" id="name" placeholder="Enter the Patient Name" class="input"
+                            required>
+                    </fieldset>
+                    <fieldset class="AttenderGroup">
+                        <label for="attender" class="details">Attender Contact Number</label><br>
+                        <input type="text" name="attender" id="attender" placeholder="Enter The Attender Ph. No." class="input"
+                            required>
+                    </fieldset>
+                    <fieldset class="bldGroup">
+                        <label for="bldGroup" class="details">Blood Group</label><br>
+                        <select name="bldGroup" id="bldGroup" class="input" >
+                            <option value="">Select the blood Group</option>
+                            <option value="A+">A+</option>
+                            <option value="B+">B+</option>
+                            <option value="O+">O+</option>
+                            <option value="AB+">AB+</option>
+                            <option value="A-">A-</option>
+                            <option value="B-">B-</option>
+                            <option value="O-">O-</option>
+                            <option value="AB-">AB-</option>
+                        </select>
+                    </fieldset>
+                    <fieldset class="unitsGroup">
+                        <label for="units" class="details">Units</label><br>
+                        <input type="text" name="units" id="units" placeholder="How many Units Needed?"
+                            class="input" required>
+                    </fieldset>
+                    <fieldset class="reasonGroup">
+                        <label for="reason" class="details">Reason</label><br>
+                        <input type="text" name="reason" id="reason" placeholder="For what reason you need blood"
+                            class="input" required>
+                    </fieldset>
+                    <fieldset class="stateGroup">
+                        <label for="city" class="details">State</label><br>
+                        <select name="stateGroup" id="stateGroup" class="input" onchange="loadDistrict()">
+                            <option value="">Select State</option>
+                        </select>
+                    </fieldset>
+                    <fieldset class="cityGroup">
+                        <label for="city" class="details">City</label><br>
+                        <select name="cityGroup" id="cityGroup" class="input" >
+                            <option value="">Select City</option>
+                        </select>
+                    </fieldset>
+                    <fieldset class="hospitaladdressGrp">
+                        <label for="hospitaladdress" class="details">Hospital Details</label><br>
+                        <textarea name="address" id="address" cols="35" rows="4" required></textarea>
+                    </fieldset>
+                    <button class="btn btn-success">
+                        <span class="btn-text-one">Request the Blood</span>
+                    </button>
+                </form>
+        </div>
+    </div>
+
+    <script src="{% static 'Bootstrap/js/jquery.js' %}"></script>
+    <script src="{% static 'Bootstrap/js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/request.js' %}"></script>
+
+    <script>
+        // initialization for loader
+        let loader = document.querySelector(".preloader");
+
+        window.addEventListener("load", () => {
+            loader.style.display = "none";
+        })
+    </script>
+</body>
+</html>

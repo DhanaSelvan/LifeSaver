@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    font-family: "Poppins", "sans-serif";
+    text-decoration: none !important;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: url("../images/blood.jpg") center fixed no-repeat;
+    background-size: cover;
+    background-color: rgba(51, 0, 14, 0.8);
+    background-blend-mode: multiply;
+}
+
+.heading {
+    font-size: clamp(1.85rem, 2vw, 2.5rem);
+    font-weight: bold;
+}
+
+.title {
+    font-size: clamp(1.85rem, 2vw, 2.25rem);
+}
+
+.details {
+    font-size: 1.125rem;
+    color: #F8F0F9;
+}
+
+.navbar {
+    background: linear-gradient(45deg, rgba(255, 64, 109, 1), rgba(255, 35, 60, 1));
+    backdrop-filter: blur(10px);
+    color: #F8F0F9 !important;
+}
+
+.login {
+    width: 100%;
+    max-width: 600px;
+    min-height: 100vh;
+    padding: 0 30px;
+    margin-bottom: 30px;
+}
+
+.login .row {
+    margin-top: 6.5em;
+    padding: 10px 30px;
+    /* background-color: rgba(255, 0, 0, 0.1); */
+    /* background: linear-gradient(to top, rgba(245, 255, 255, 0.1), rgba(255, 255, 255,0.1)); */
+    backdrop-filter: blur(20px);
+    border-radius: 10px;
+    box-shadow: 0px 0px 20px rgba(255, 255, 255, 0.2);
+}
+
+.login h2 {
+    color: #FF233C;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+}
+
+fieldset{
+    border: none;
+}
+
+fieldset label {
+    color: #F8F0F9;
+}
+
+fieldset span {
+    color: #FF233C;
+}
+
+.btn {
+    width: 140px;
+    height: 40px;
+    background: linear-gradient(to right, #FF233C, #FF406D, #FF233C);
+    color: #fff;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+}
+
+.btn span {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: top 0.5s;
+}
+
+.btn-text-one {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.btn-text-two {
+    position: absolute;
+    width: 100%;
+    top: 150%;
+    left: 0;
+    transform: translateY(-50%);
+}
+
+.btn:hover {
+    /* top: -100%; */
+    background: linear-gradient(to right, #FF406D, #FF233C, #FF406D);
+}
+
+.input,textarea {
+    padding: 5px 10px;
+    border-radius: 3px;
+    border: none;
+    background-color: rgba(248, 240, 249,1);
+    margin: 10px 0px;
+    width: 100%;
+    max-width: 258px;
+    font-size: 1.125rem;
+}
+
+.input:focus, textarea:focus{
+    outline: none;
+    box-shadow: 0px 0px 10px rgba(248, 240, 249,0.5);
+}
+
+input[type="file"]{
+    color: #F8F0F9;
+}
+
+::placeholder{
+    color: rgba(0, 0, 0, 0.5);
+}
+
+
+input[type="radio"]{
+    margin-left: 10px;
+    margin-bottom: 10px;
+}
+
+option{
+    color: black;
+}

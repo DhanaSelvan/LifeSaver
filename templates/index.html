@@ -1,0 +1,180 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block header %}
+<!-- navigation bar -->
+<nav class="navbar navbar-expand-lg fixed-top py-2" data-aos="fade-down">
+  <div class="container">
+      <div class="nav-right">
+          <a class="navbar-brand heading text-light" href="#">Life Saver</a>
+      </div>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" fill="currentColor" class="bi bi-list text-light" viewBox="0 0 16 16">
+              <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+            </svg>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link body text-light" href="#home">Home</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link body text-light" href="#service">Services</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link body text-light" href="#contact">Contact</a>
+          </li>
+        </ul>
+      </div>
+  </div>
+</nav>
+{% endblock header %}
+{% block homeSection %}
+  <section id="home">
+    <div class="container">
+      <div class="row"  data-aos="zoom-in-up">
+        <marquee behavior="" direction="">
+          <p>Life Saver is just an intermediate between the Donors and the People who needs a blood</p>
+        </marquee>
+          <div class="col-lg-6 col-md-6 col-12">
+            <img src="{% static 'images/home-img.png' %}" alt="A sample image for home page" class="img-fluid">
+          </div>
+          <div class="col-lg-6 col-md-6 col-12 text-center d-flex flex-column justify-content-center align-items-center">
+            <h2 class="heading text-center py-lg-0 py-md-0 py-2">
+              Your Were Born With The Ability to Change Someone's Life through Donating your Blood.
+            </h2>
+            <a class="btn" href="#service">Get Started</a>
+          </div>
+      </div> 
+    </div>
+    <img src="{% static 'images/wave.png' %}" alt="bottom-wave" class="wave img-fluid">
+  </section>
+{% endblock homeSection %}
+
+{% block serviceSection %}
+<section id="service">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 col-md-6 col-12 my-lg-0 my-md-0 my-2" data-aos="fade-right">
+        <div class="card h-100 rounded">
+          <div class="card-header sub-title text-center" style="background: linear-gradient(45deg, #FF406D, #FF233C);color:#F8F0F9;font-weight:bold;letter-spacing:0.15rem">Send a Request</div>
+          <div class="card-body">
+            <p class="card-text">By Sending a Blood Request here. We Send your request details to the donor who all are registered in our website. To help you to get the blood.</p>
+            <button class="btn btn-link"><a href="{% url 'Request' %}">Go to Request page</a></button>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-12 my-lg-0 my-md-0 my-2" data-aos="fade-up">
+        <div class="card h-100">
+          <div class="card-header sub-title text-center" style="background: linear-gradient(45deg, #FF406D, #FF233C);color:#F8F0F9;font-weight:bold;letter-spacing:0.15rem">Search For Donor</div>
+          <div class="card-body">
+            <p class="card-text">You can also see the donor details to get the Blood by directly contact Donor by using the below link.</p>
+            <button class="btn btn-link"><a href="{% url 'Search'%}">See Donor Details</a></button>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4 col-md-6 col-12 my-lg-0 my-md-2 my-2" data-aos="fade-right">
+        <div class="card h-100">
+          <div class="card-header sub-title text-center" style="background: linear-gradient(45deg, #FF406D, #FF233C);color:#F8F0F9;font-weight:bold;letter-spacing:0.15rem">Register as Donor</div>
+          <div class="card-body">
+            <p class="card-text">If you want to save someone's life by donating your blood you can register here. If you registered in our website as a donor you will get a notification through mail whenever a persons request a blood in this website.</p>
+            <button class="btn btn-link"><a href="{% url 'Register'%}">Go to Registration</a></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="bloodCamp">
+  <div class="container">
+    <h2 class="header">Blood Camp Details</h2>
+    <div class="row">
+      {% if length %}
+      <div class="container">
+        <p class="text-center details">No Details Available Now</p>
+      </div>
+      {% endif%}
+      {% for data in details %}
+      <div class="col-lg-4 col-md-6 col-12 my-lg-0 my-md-0 my-2" data-aos="fade-right">
+        <div class="card h-100">
+          <div class="card-body">
+            <p class="details">Organiser Name:</p>
+            <p>{{data.OrganiserName}}</p>
+            <p class="details">Contact Number:</p>
+            <p>{{data.ContactNumber}}</p>
+            <p class="details">Date: {{data.Date}}</p>
+            <p class="details">Time: {{data.Time}}</p>
+            <p class="details">Place:</p>
+            <p>{{data.Venue}}</p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <marquee behavior="" direction="">
+      <p>If you want to Post the Blood Camp details, Please Send the Details to the Gmail ID: blood.donor.application.gmail.com</p>
+    </marquee>
+  </div>
+</section>
+
+{% endblock serviceSection %}
+
+{% block contactSection %}
+<!-- Contact section -->
+<section id="contact" class="container">
+  <div class="contact-continer row" data-aos="zoom-in">
+      <div class="col-lg-6 col-md-6 col-12 con-right">
+          <img src="{% static 'images/contact-img.png' %}" alt="Image for Contact" class="img-fluid">
+      </div>
+      <div class="col-lg-6 col-md-6 col-12 con-left">
+          <h2 class="title">Have any Queries?<br><span>Contact us!</span></h2>
+          <form action="" method="post" autocomplete="off">
+            {% csrf_token %}
+              <table>
+                  <tbody>
+                      <tr>
+                          <td>
+                              <label for="name" class="details">Full Name</label>
+                              <input type="text" name="name" id="name" placeholder="Enter your Name" required>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>
+                              <label for="email" class="details">Email</label><br>
+                              <input type="email" name="email" id="email" placeholder="Enter your Email Id" required>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>
+                              <label for="subject" class="details">Subject</label><br>
+                              <input type="text" name="subject" id="subject" required>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>
+                              <label for="message" class="details">Message</label><br>
+                              <textarea name="message" id="message"></textarea>
+                          </td>
+                      </tr>
+                      <tr>
+                          <td>
+                            <button>
+                              <div class="svg-wrapper-1">
+                                <div class="svg-wrapper">
+                                  <svg height="24" width="24" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 0h24v24H0z" fill="none"></path>
+                                    <path d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z" fill="currentColor"></path>
+                                  </svg>
+                                </div>
+                              </div>
+                              <span>Send</span>
+                            </button>
+                          </td>
+                      </tr>
+                  </tbody>
+              </table>
+          </form>
+      </div>
+  </div>
+</section>
+{% endblock contactSection %}
